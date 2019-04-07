@@ -1,25 +1,27 @@
 import psycopg2
 
-def query(statement, cursor):
-    # Execute query statement
-    cursor.execute(statement)
-    
-    results = cursor.fetchall()
-    
-    return results
-    
-
-def main(db_conn):
-    print("Setting up Udacity Log Analysis Program\nRE: FSND - Project 1 - Cory A. Ramirez")
-    
+def query(statement, conn):
     try:
         # Instantiate a cursor that will be used to interact with the db
-        db_cursor = db_conn.cursor()
+        db_cursor = conn.cursor()
         
     except:
         print("Unable to instantiate database cursor.  Exiting")
         exit()
         
+    # Execute query statement
+    db_cursor.execute(statement)
+    
+    results = db_cursor.fetchall()
+    
+    db_cursor.close()
+    
+    return results
+    
+
+def main(connection):
+    print("Setting up Udacity Log Analysis Program\nRE: FSND - Project 1 - Cory A. Ramirez")
+    
     # What articles have been accessed the most of all time?
     print("Top three most accessed articles:")
     
@@ -31,7 +33,7 @@ def main(db_conn):
         ORDER BY results desc
         limit 3;
         """,
-        db_cursor)
+        connection)
         
     print(results)
     
@@ -40,7 +42,7 @@ def main(db_conn):
     # Which days had greater than 1% of HTTP errors?
     
     # Close db connection
-    db_conn.close()
+    # db_conn.close()
 
 
 if __name__ == "__main__":
