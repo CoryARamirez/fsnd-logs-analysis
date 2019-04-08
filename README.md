@@ -41,7 +41,7 @@ psql -d news -f newsdata.sql
  ### Runing the program
  With the data loaded, download "main.py" and "sql.py" from this repo and put it in the "vagrant" directory. Run the following command:
  ```
- python mamamain.py
+ python main.py
  ```
  or, if you are running python3
  ```
