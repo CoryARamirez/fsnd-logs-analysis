@@ -39,15 +39,15 @@ In your terminal, created in the instructions above, run the following:
 psql -d news -f newsdata.sql
 ```
  ### Run LogsAnalysis.py
- With the data loaded, download "LogsAnalysis.py" from my repo and put it in the "vagrant" directory. Run the following command:
+ With the data loaded, download "main.py" and "sql.py" from this repo and put it in the "vagrant" directory. Run the following command:
  ```
  python LogsAnalysis.py
  ```
- or, if the above doesn't work
+ or, if you are running python3
  ```
  python3 LogsAnalysis.py
  ```
- Compare the "LogsAnalysis.txt" in my repo to the one created in your "vagrant" directory".
+ Compare the "example.txt" in this repo to the output displayed to stdout after execution.
  
  ### Exit Vagrant
  Run the following command to exit vagrant,
